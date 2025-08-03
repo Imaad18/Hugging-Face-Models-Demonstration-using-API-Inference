@@ -29,7 +29,7 @@ Both models are open-source under the **MIT license**, enabling commercial and r
 
 | File Name           | Description                                           |
 |---------------------|-------------------------------------------------------|
-| `glm_text_demo.py`  | Python script for running GLM-4.5 via Hugging Face API |
+| `main.py`  | Python script for running GLM-4.5 via Hugging Face API |
 | `README.md`         | Model overview and instructions (this file)           |
 
 ---
@@ -45,19 +45,22 @@ pip install -q huggingface_hub
 
 ### On Kaggle:
 
+```bash
 from kaggle_secrets import UserSecretsClient
 user_secrets = UserSecretsClient()
 HF_TOKEN = user_secrets.get_secret("HF_TOKEN")
-
+```
 
 ### On Colab:
 
+```bash
 from google.colab import userdata
 HF_TOKEN = userdata.get("HF_TOKEN")
-
+```
 
 ### Run The Model
 
+```bash
 from huggingface_hub import InferenceClient
 
 client = InferenceClient(
@@ -70,6 +73,6 @@ response = client.chat.completions.create(
 )
 
 print(response.choices[0].message.content)
-
+```
 
 ### Author = Imaad Mahmood
