@@ -1,3 +1,7 @@
+![glm](https://github.com/user-attachments/assets/7feeb788-0d98-4468-a4e8-feabd60bd74a)
+
+
+
 # 🤖 GLM-4.5 | Text Generation Demo
 
 This folder demonstrates how to use the [GLM-4.5](https://huggingface.co/zai-org/GLM-4.5) model for high-quality text generation via the Hugging Face Inference API. GLM-4.5 is a next-generation foundation model optimized for intelligent agents, supporting reasoning, coding, and multi-modal interactions.
