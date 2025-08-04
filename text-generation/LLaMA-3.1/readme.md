@@ -1,3 +1,6 @@
+<img width="225" height="225" alt="meta" src="https://github.com/user-attachments/assets/61575cf4-b782-420f-ba27-347605c5e6c1" />
+
+
 # 🦙 LLaMA 3.1 (8B Instruct) — Text Generation Demo
 
 This folder contains a demo for text generation using the **Meta LLaMA-3.1 8B Instruct** model via Hugging Face Inference API through the **Novita** provider.
