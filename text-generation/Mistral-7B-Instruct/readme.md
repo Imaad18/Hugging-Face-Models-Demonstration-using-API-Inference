@@ -1,4 +1,5 @@
-![Uploading mt.png…]()
+<img width="1200" height="600" alt="mt" src="https://github.com/user-attachments/assets/917e1fa7-21dd-4eb0-8cc8-2b03967694c9" />
+
 
 
 # 🔥 Mistral-7B-Instruct-v0.2 - Text Generation with Hugging Face Inference Client
