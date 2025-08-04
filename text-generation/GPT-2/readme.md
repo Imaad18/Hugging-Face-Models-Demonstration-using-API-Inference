@@ -1,3 +1,6 @@
+<img width="288" height="175" alt="gpt" src="https://github.com/user-attachments/assets/92ebb539-0c56-44ef-a8df-88d0586a19e0" />
+
+
 ### 🧠 GPT-2: Generative Pretrained Transformer 2
 
 GPT-2 is a large transformer-based language model developed by **OpenAI**, capable of generating coherent and contextually relevant paragraphs of text. This repository provides an implementation for running GPT-2 using the Hugging Face 🤗 `transformers` library.
