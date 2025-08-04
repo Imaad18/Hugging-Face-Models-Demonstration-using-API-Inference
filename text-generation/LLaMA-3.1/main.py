@@ -1,39 +1,81 @@
-"""
-LLaMA-3.1 Text Generation Demo using Hugging Face Inference API (Novita Provider)
-
-Author: Imaad Mahmood
-GitHub: https://github.com/imaad18
-Model: meta-llama/Llama-3.1-8B-Instruct
-"""
-
 import os
 from huggingface_hub import InferenceClient
+from typing import List, Dict
+import time
 
-# Load the HF API token securely (adjust based on environment)
-HF_TOKEN = os.getenv("HF_TOKEN")
-if not HF_TOKEN:
-    raise ValueError("HF_TOKEN not found. Please set it as an environment variable.")
+def initialize_client() -> InferenceClient:
+    """Initialize the InferenceClient with error handling."""
+    try:
+        api_key = os.environ.get("HF_TOKEN")
+        if not api_key:
+            raise ValueError("HF_TOKEN environment variable not set")
+        
+        return InferenceClient(
+            provider="novita",
+            api_key=api_key,
+            timeout=30
+        )
+    except Exception as e:
+        print(f"Failed to initialize client: {str(e)}")
+        raise
 
-# Initialize the InferenceClient for the Novita provider
-client = InferenceClient(
-    provider="novita",
-    api_key=HF_TOKEN,
-)
+def create_conversation_history() -> List[Dict[str, str]]:
+    """Create a sample conversation history."""
+    return [
+        {"role": "system", "content": "You are a knowledgeable assistant providing detailed and accurate answers."},
+        {"role": "user", "content": "What is the capital of France?"},
+        {"role": "assistant", "content": "The capital of France is Paris."},
+        {"role": "user", "content": "Can you tell me more about its history?"}
+    ]
 
-# Define your input prompt
-prompt = "What is the capital of France?"
+def stream_response(client: InferenceClient, messages: List[Dict[str, str]]) -> None:
+    """Stream the model's response with advanced configuration."""
+    try:
+        # Configure advanced parameters for the model
+        stream = client.chat.completions.create(
+            model="meta-llama/Llama-3.1-8B-Instruct",
+            messages=messages,
+            max_tokens=500,
+            temperature=0.7,
+            top_p=0.9,
+            top_k=50,
+            presence_penalty=0.2,
+            frequency_penalty=0.3,
+            stream=True
+        )
 
-# Create a chat-style message for the model (similar to OpenAI format)
-messages = [
-    {"role": "user", "content": prompt}
-]
+        print("\nStreaming response:\n")
+        start_time = time.time()
+        
+        # Process streaming response
+        for chunk in stream:
+            if chunk.choices[0].delta.content:
+                print(chunk.choices[0].delta.content, end="", flush=True)
+        
+        print(f"\n\nResponse completed in {time.time() - start_time:.2f} seconds")
+        
+    except Exception as e:
+        print(f"Error during streaming: {str(e)}")
 
-# Call the chat completion API
-completion = client.chat.completions.create(
-    model="meta-llama/Llama-3.1-8B-Instruct",
-    messages=messages,
-)
+def main():
+    """Main function to demonstrate advanced model features."""
+    try:
+        # Initialize client
+        client = initialize_client()
+        
+        # Create conversation history
+        messages = create_conversation_history()
+        
+        # Print conversation context
+        print("Conversation History:")
+        for msg in messages:
+            print(f"{msg['role'].capitalize()}: {msg['content']}")
+        
+        # Stream the response
+        stream_response(client, messages)
+        
+    except Exception as e:
+        print(f"An error occurred: {str(e)}")
 
-# Extract and print the model's reply
-response = completion.choices[0].message.content
-print(f"\n🤖 LLaMA-3.1 Response:\n{response}")
+if __name__ == "__main__":
+    main()
