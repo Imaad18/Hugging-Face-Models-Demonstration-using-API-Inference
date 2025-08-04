@@ -71,9 +71,50 @@ Each subfolder has:
 ### 🔌 Installation
 
 Clone the repository and install dependencies:
-
 ```bash
-git clone https://github.com/your-username/Hugging-Face-Models-Demonstration-using-API-Inference.git
+git clone https://github.com/Imaad18/Hugging-Face-Models-Demonstration-using-API-Inference.git
 cd Hugging-Face-Models-Demonstration-using-API-Inference
 pip install -r requirements.txt
 ```
+
+
+
+Each folder contains:
+
+- `main.py` – Clean demo for inference
+- `README.md` – Model-specific notes
+
+---
+
+## 🚀 Models Demonstrated
+
+| 🧠 Model Name | ⚙️ Access | 🔗 Hugging Face Link |
+|--------------|-----------|----------------------|
+| DeepSeek R1 Distill | API | [Link](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Llama-8B) |
+| Qwen 0.5B Chat | API | [Link](https://huggingface.co/Qwen/Qwen1.5-0.5B-Chat) |
+| Mistral 7B Instruct | API | [Link](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.2) |
+| StableBeluga 2 | Local | [Link](https://huggingface.co/stabilityai/StableBeluga2) |
+| Phi-3 Mini | Local | [Link](https://huggingface.co/microsoft/Phi-3-mini-128k-instruct) |
+| GPT-2 | Local | [Link](https://huggingface.co/gpt2) |
+
+---
+
+## ⚙️ Setup & Usage
+
+### 🧪 API-Based Inference (e.g., Qwen, DeepSeek, Mistral)
+
+```bash
+# Set your Hugging Face API token
+export HF_TOKEN=your_huggingface_token
+```
+
+# Example
+cd text-generation/Qwen2.5
+python main.py
+
+
+### Author
+Imaad Mahmood
+🎓 AI Undergraduate | 🧠 ML & LLM Enthusiast | 🌍 Based in Bahawalpur, Pakistan
+🔗 GitHub: @Imaad18
+📫 Email: imaadmahmood18102004@gmail.com
