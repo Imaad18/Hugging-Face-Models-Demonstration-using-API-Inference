@@ -1,9 +1,12 @@
+<img width="318" height="159" alt="hf" src="https://github.com/user-attachments/assets/ab30522f-b925-442b-a4ce-3803d4c8ecab" />
+
+
 # 🤗 Hugging Face Models Demonstration via API Inference
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
-![Python](https://img.shields.io/badge/Python-3.9%2B-blue.svg)
-![Platform](https://img.shields.io/badge/Platform-GPU--Optimized-green.svg)
-![HuggingFace](https://img.shields.io/badge/Powered%20by-Hugging%20Face-yellow.svg)
+[![License](https://img.shields.io/github/license/Imaad18/Hugging-Face-Models-Demonstration-using-API-Inference)](./LICENSE)
+[![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
+[![Stars](https://img.shields.io/github/stars/Imaad18/Hugging-Face-Models-Demonstration-using-API-Inference?style=social)](https://github.com/Imaad18/Hugging-Face-Models-Demonstration-using-API-Inference/stargazers)
+
 
 > A modular, CUDA-accelerated framework for showcasing text generation with Hugging Face models like Phi-3, Mistral, and StableBeluga using local API-style inference.
 
